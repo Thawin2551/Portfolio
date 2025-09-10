@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+html, body {
+  margin:0;
+  padding: 0;
+  font-family: "Sarabun", sans-serif;
+  background-color: #1a1919;
+  color: #f3f4f6;
+    
+}
+
+@layer utilities {
+
+  @keyframes blink {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity:0;
+    }
+  }
+
+  .animate-blink {
+    animation: blink 0.8s ease-in-out infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(250%);
+    }
+  }
+
+  @keyframes slideGradient {
+    0% {
+
+    }
+    33% {
+
+    }
+    66%{
+
+    }
+    100%{
+
+    }
+  }
+
+  @keyframes gradientSlide {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, 
+    #ffffff, #686767, #272ade, #ffffff, #ffffff, #272ade, #686767, #ffffff);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientSlide 8s linear infinite;
+}
+
+.gradient-monochrome-text {
+  background: linear-gradient(90deg, 
+    #ffffff, #686767, #ffffff, #686767, #686767, #ffffff, #686767, #ffffff);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientSlide 8s linear infinite;
+}
+
+.gradient-style-frame {
+  border: linear-gradient(90deg, 
+    #ffffff, #0c6eee, #ffffff, #157aee, #0dc1ee, #ffffff, #2141f7, #ffffff);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: gradientSlide 8s linear infinite;
+}
+
+.gradient-text:hover {
+  animation-play-state: paused;
+  cursor:pointer
+}
+
+.animate-loading-bar {
+  animation: loading 0.8s ease infinite;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transfrom 0.7 ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+  
+}
