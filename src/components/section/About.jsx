@@ -63,7 +63,7 @@ export const About = () => {
             {/* Photos */}
             <div className="flex items-start justify-center md:justify-end gap-3">
               <img
-                src="/src/assets/ThawinPic.jpg"
+                src="\image\camp-comp-image\ThawinPic.jpg"
                 alt="Thawin portrait"
                 className="w-32 h-44 md:w-36 md:h-48 rounded-xl object-cover shadow-lg shadow-black/30"
               />
