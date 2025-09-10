@@ -5,7 +5,7 @@ import MarqueeSlide from "../MarqueeSlide";
 import QuickContact from "./compcontact/QuickContact";
 
 import { About } from "./About";
-import Projects from "./Projects";
+import Projects from "../../../public/image/camp-comp-image/Projects";
 import { Awards } from "./Awards";
 import Certificate from "./Certificate";
 
@@ -48,7 +48,7 @@ export const Home = () => {
           <RiseNow>
             <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
               <img
-                src="/src/image/camp-comp-image/SkillPost2.png"
+                src="/image/camp-comp-image/SkillPost2.png"
                 alt="Showcase"
                 className="w-full h-full object-cover"
                 loading="eager"

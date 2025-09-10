@@ -1,3 +1,4 @@
+// components/section/Awards.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -25,8 +26,8 @@ const AWARDS = [
     result: "Finalist",
     badge: "AI Development",
     images: [
-      "/src/image/camp-comp-image/Gold-Nextgen.jpg",
-      "/src/image/camp-comp-image/Silver-Nextgen.jpg",
+      "/image/camp-comp-image/Gold-Nextgen.jpg",
+      "/image/camp-comp-image/Silver-Nextgen.jpg",
     ],
     link: "https://drive.google.com/drive/folders/11NSoVJt0etpAIqByoubYopBrUimKKnPU?usp=sharing",
     desc: "แข่งขันพัฒนาจาก Dataset ที่ได้รับและฝึกโมเดลด้วย PyTorch ตลอด 72 ชั่วโมง",
@@ -50,11 +51,11 @@ const AWARDS = [
     result: "Finalist",
     badge: "Nano Technology",
     images: [
-      "/src/image/camp-comp-image/Nano-cert.jpg",
-      "/src/image/camp-comp-image/nano-tech-people.png",
-      "/src/image/camp-comp-image/RR-Mobile-Graph.png",
-      "/src/image/camp-comp-image/rr-blue-graph.png",
-      "/src/image/camp-comp-image/rr-red-graph.png",
+      "/image/camp-comp-image/Nano-cert.jpg",
+      "/image/camp-comp-image/nano-tech-people.png",
+      "/image/camp-comp-image/RR-Mobile-Graph.png",
+      "/image/camp-comp-image/rr-blue-graph.png",
+      "/image/camp-comp-image/rr-red-graph.png",
     ],
     link: "https://drive.google.com/drive/folders/11NSoVJt0etpAIqByoubYopBrUimKKnPU?usp=sharing",
     desc: "ไฮโดรเจลอัจฉริยะซ่อมแซมตัวเอง (MCC + Guar gum) เพื่อตรวจจับการเคลื่อนไหวผู้ป่วยติดเตียง",
@@ -73,7 +74,7 @@ const AWARDS = [
     year: "2024",
     result: "Completed",
     badge: "Physics",
-    images: ["/src/image/camp-comp-image/POSN-Cert.jpg"],
+    images: ["/image/camp-comp-image/POSN-Cert.jpg"],
     desc: "อบรม/ปฏิบัติการทดลองฟิสิกส์เข้มข้น ใช้วิธีวิทยาศาสตร์อธิบายปรากฏการณ์",
     whatIDid: ["อบรมเนื้อหาฟิสิกส์เชิงลึก", "ทดลองหลายรูปแบบ", "ปฏิบัติจริงในแลป"],
     techniques: ["Scientific method", "Hypothesis testing", "Data analysis"],
@@ -87,9 +88,9 @@ const AWARDS = [
     result: "Completed",
     badge: "Web Development",
     images: [
-      "/src/image/camp-comp-image/KU-Cert.png",
-      "/src/image/camp-comp-image/menu-pizza.png",
-      "/src/image/camp-comp-image/mobile-menu-pizza.png",
+      "/image/camp-comp-image/KU-Cert.png",
+      "/image/camp-comp-image/menu-pizza.png",
+      "/image/camp-comp-image/mobile-menu-pizza.png",
     ],
     desc: "พัฒนาเว็บ E-Commerce ด้วย React + Tailwind ตามโจทย์ที่ได้รับ",
     whatIDid: [
@@ -108,8 +109,8 @@ const AWARDS = [
     result: "Silver Medalist",
     badge: "Mathematics",
     images: [
-      "/src/image/camp-comp-image/PSU.jpg",
-      "/src/image/camp-comp-image/CertificateA4-PMC2025.jpg",
+      "/image/camp-comp-image/PSU.jpg",
+      "/image/camp-comp-image/CertificateA4-PMC2025.jpg",
     ],
     link: "",
     desc: "เหรียญเงินและอันดับ 1 จังหวัดลพบุรี",

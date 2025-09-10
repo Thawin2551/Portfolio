@@ -2,21 +2,21 @@ import React, { useEffect, useRef, useState } from "react";
 
 export default function Certificate() {
   const CampCertificates = [
-    { id: 1, title: "Math Camp (KMITL)", image: "/src/image/camp-comp-image/MathCamp.jpg" },
-    { id: 2, title: "Physics Battle (KU)", image: "/src/image/camp-comp-image/PhyBattlePic-Cert.jpg" },
-    { id: 3, title: "CiRA CORE AMI Papaya", image: "/src/image/camp-comp-image/AMI-Papaya.jpg" },
-    { id: 4, title: "CE Next Gen #2 (KMITL)", image: "/src/image/camp-comp-image/CENextGen.jpg" },
-    { id: 5, title: "RAI Frontier Camp (Online)", image: "/src/image/camp-comp-image/RAICampOnline.jpg" },
-    { id: 6, title: "RAI Frontier Camp (Onsite)", image: "/src/image/camp-comp-image/RaiCamp-Onsite-Cert.jpg" },
-    { id: 7, title: "ComCamp36 (KMUTT)", image: "/src/image/camp-comp-image/ComCamp.jpg" },
-    { id: 8, title: "INC Engineering Camp 14 (KMUTT)", image: "/src/image/camp-comp-image/IncCamp.jpg" },
-    { id: 9, title: "IT CAMP 21 (KMITL)", image: "/src/image/camp-comp-image/ITCAMP21.jpg" },
-    { id: 10, title: "NextGenAI Camp (KMITL)", image: "/src/image/camp-comp-image/Silver-Nextgen.jpg" },
-    { id: 11, title: "NextGenAi Hackathon (KMITL)", image: "/src/image/camp-comp-image/Gold-Nextgen.jpg" },
-    { id: 12, title: "SPU Prompt AI Mini Hackathon (SPU)", image: "/src/image/camp-comp-image/AiAT-SPU.jpg" },
-    { id: 13, title: "PSU Mathematic Competition (PSU)", image: "/src/image/camp-comp-image/PSU.jpg" },
-    { id: 14, title: "Web Development Competition (KU)", image: "/src/image/camp-comp-image/KU-Cert.png" },
-    { id: 15, title: "การประกวดนวัตกรรมนาโนเทคโนโลยีระดับประเทศ ครั้งที่ 13 (KMITL)", image: "/src/image/camp-comp-image/Nano-cert.jpg" },
+    { id: 1, title: "Math Camp (KMITL)", image: "/image/camp-comp-image/MathCamp.jpg" },
+    { id: 2, title: "Physics Battle (KU)", image: "/image/camp-comp-image/PhyBattlePic-Cert.jpg" },
+    { id: 3, title: "CiRA CORE AMI Papaya", image: "/image/camp-comp-image/AMI-Papaya.jpg" },
+    { id: 4, title: "CE Next Gen #2 (KMITL)", image: "/image/camp-comp-image/CENextGen.jpg" },
+    { id: 5, title: "RAI Frontier Camp (Online)", image: "/image/camp-comp-image/RAICampOnline.jpg" },
+    { id: 6, title: "RAI Frontier Camp (Onsite)", image: "/image/camp-comp-image/RaiCamp-Onsite-Cert.jpg" },
+    { id: 7, title: "ComCamp36 (KMUTT)", image: "/image/camp-comp-image/ComCamp.jpg" },
+    { id: 8, title: "INC Engineering Camp 14 (KMUTT)", image: "/image/camp-comp-image/IncCamp.jpg" },
+    { id: 9, title: "IT CAMP 21 (KMITL)", image: "/image/camp-comp-image/ITCAMP21.jpg" },
+    { id: 10, title: "NextGenAI Camp (KMITL)", image: "/image/camp-comp-image/Silver-Nextgen.jpg" },
+    { id: 11, title: "NextGenAi Hackathon (KMITL)", image: "/image/camp-comp-image/Gold-Nextgen.jpg" },
+    { id: 12, title: "SPU Prompt AI Mini Hackathon (SPU)", image: "/image/camp-comp-image/AiAT-SPU.jpg" },
+    { id: 13, title: "PSU Mathematic Competition (PSU)", image: "/image/camp-comp-image/PSU.jpg" },
+    { id: 14, title: "Web Development Competition (KU)", image: "/image/camp-comp-image/KU-Cert.png" },
+    { id: 15, title: "การประกวดนวัตกรรมนาโนเทคโนโลยีระดับประเทศ ครั้งที่ 13 (KMITL)", image: "/image/camp-comp-image/Nano-cert.jpg" },
   ];
 
   // ---- Lightbox state ----

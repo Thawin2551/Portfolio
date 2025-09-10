@@ -12,7 +12,7 @@ export const About = () => {
       institution: "Winitsuksa School",
       degree: "Mid-School",
       details: "Graduated from Winitesuksa School",
-      logo: "/src/image/school-image/winit.jpg",
+      logo: "/image/school-image/winit.jpg",
     },
     {
       year: "2023 – 2026",
@@ -20,7 +20,7 @@ export const About = () => {
       degree: "High-School",
       department: "Sci–Math",
       details: "Graduated from Pibulwittayalai School",
-      logo: "/src/image/school-image/pibul.png",
+      logo: "/image/school-image/pibul.png",
     },
   ];
 
@@ -67,11 +67,6 @@ export const About = () => {
                 alt="Thawin portrait"
                 className="w-32 h-44 md:w-36 md:h-48 rounded-xl object-cover shadow-lg shadow-black/30"
               />
-              <img
-                src="/src/assets/ThawinPic.jpg"
-                alt="Thawin portrait alt"
-                className="w-32 h-44 md:w-36 md:h-48 rounded-xl object-cover shadow-lg shadow-black/30 hidden sm:block"
-              />
             </div>
           </div>
         </div>
@@ -83,14 +78,14 @@ export const About = () => {
 
           {/* ไม่มีขอบรอบโลโก้แล้ว + เงานุ่ม */}
           <div className="mt-6 flex flex-row flex-wrap gap-6">
-            <img src="/src/image/skills-image/react.png" alt="React" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/tailwind.png" alt="Tailwind" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/js.png" alt="JavaScript" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/CSS.png" alt="CSS" className="w-18 h-18 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/HTML.webp" alt="HTML" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/BootStrap.png" alt="Bootstrap" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/python-logo.png" alt="Python" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
-            <img src="/src/image/skills-image/Canva.png" alt="Canva" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/react.png" alt="React" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/tailwind.png" alt="Tailwind" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/js.png" alt="JavaScript" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/CSS.png" alt="CSS" className="w-18 h-18 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/HTML.webp" alt="HTML" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/BootStrap.png" alt="Bootstrap" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/python-logo.png" alt="Python" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
+            <img src="/image/skills-image/Canva.png" alt="Canva" className="w-16 h-16 rounded-xl object-contain shadow-lg shadow-black/30" />
           </div>
         </div>
 
