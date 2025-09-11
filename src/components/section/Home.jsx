@@ -5,7 +5,7 @@ import MarqueeSlide from "../MarqueeSlide";
 import QuickContact from "./compcontact/QuickContact";
 
 import { About } from "./About";
-import Projects from "../../../public/image/camp-comp-image/Projects";
+import Projects from "./Projects";
 import { Awards } from "./Awards";
 import Certificate from "./Certificate";
 
@@ -103,7 +103,7 @@ export const Home = () => {
       </div>
 
       {/* marquee (soft) */}
-      <div className="px-4 mt-12 md:mt-16">
+      <div className="px-4 pb-20 mx-auto">
         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
           <Marquee speed={80} gradient gradientColor="black" gradientWidth={160}>
             <MarqueeSlide />
@@ -111,32 +111,7 @@ export const Home = () => {
         </div>
       </div>
 
-      {/* sections preview – โหลดแบบเฟดและคุมธีมให้กลืน */}
-      <div className="px-4 space-y-14 md:space-y-20 mt-14">
-        <FadeY>
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
-            <About />
-          </div>
-        </FadeY>
-
-        <FadeY>
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
-            <Projects />
-          </div>
-        </FadeY>
-
-        <FadeY>
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
-            <Awards />
-          </div>
-        </FadeY>
-
-        <FadeY>
-          <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl">
-            <Certificate />
-          </div>
-        </FadeY>
-      </div>
+    
     </section>
   );
 };
