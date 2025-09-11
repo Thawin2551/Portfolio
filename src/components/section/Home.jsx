@@ -103,7 +103,7 @@ export const Home = () => {
       </div>
 
       {/* marquee (soft) */}
-      <div className="px-4 pb-20 mx-auto">
+      <div className="px-4 pb-20 mt-12 mx-auto">
         <div className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden">
           <Marquee speed={80} gradient gradientColor="black" gradientWidth={160}>
             <MarqueeSlide />
