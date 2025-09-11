@@ -28,6 +28,7 @@ const AWARDS = [
     images: [
       "/image/camp-comp-image/Gold-Nextgen.jpg",
       "/image/camp-comp-image/Silver-Nextgen.jpg",
+      "/image/camp-comp-image/nextgen-present.jpg",
     ],
     link: "https://drive.google.com/drive/folders/11NSoVJt0etpAIqByoubYopBrUimKKnPU?usp=sharing",
     desc: "แข่งขันพัฒนาจาก Dataset ที่ได้รับและฝึกโมเดลด้วย PyTorch ตลอด 72 ชั่วโมง",
@@ -51,13 +52,14 @@ const AWARDS = [
     result: "Finalist",
     badge: "Nano Technology",
     images: [
-      "/image/camp-comp-image/Nano-cert.jpg",
+      "/image/camp-comp-image/cert-nano.jpg",
       "/image/camp-comp-image/nano-tech-people.png",
+      "/image/camp-comp-image/Graph-RR.png",
       "/image/camp-comp-image/RR-Mobile-Graph.png",
       "/image/camp-comp-image/rr-blue-graph.png",
       "/image/camp-comp-image/rr-red-graph.png",
     ],
-    link: "https://drive.google.com/drive/folders/11NSoVJt0etpAIqByoubYopBrUimKKnPU?usp=sharing",
+    link: "https://drive.google.com/drive/folders/1gfoVvXmHC-FKy3Fw4SgJf2rj_s1Ce1nN?usp=sharing",
     desc: "ไฮโดรเจลอัจฉริยะซ่อมแซมตัวเอง (MCC + Guar gum) เพื่อตรวจจับการเคลื่อนไหวผู้ป่วยติดเตียง",
     whatIDid: [
       "เขียน Python ทำ Data Visualization",

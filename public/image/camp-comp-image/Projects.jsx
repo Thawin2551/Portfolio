@@ -76,7 +76,7 @@ const DATA = [
   {
     id: 4,
     title: "Portfolio Website",
-    tagline: "พอร์ตโฟลิโอธีมเข้ม นุ่มตา เน้นความชัด",
+    tagline: "ฝึกใช้เครื่องมือใหม่ ๆ และออกแบบเว็บด้วยตัวเอง",
     cover: "/image/camp-comp-image/loading.png",
     images: [
       "/image/camp-comp-image/Port1.png",
@@ -98,10 +98,14 @@ const DATA = [
     id: 5,
     title: "NextGenAI Hackathon 2025",
     tagline: "การแข่งขัน AI ที่เข้มข้นที่สุดสำหรับผม",
-    cover: "/image/camp-comp-image/present-nextgen.jpg",
+    cover: "/image/camp-comp-image/nextgen-present.jpg",
     images: [
-      "/image/camp-comp-image/slide-nextgen.png",
+      "/image/camp-comp-image/Slide-Nextgen.png",
       "/image/camp-comp-image/Top10.jpg",
+      "/image/camp-comp-image/Gold-Nextgen.jpg",
+      "/image/camp-comp-image/Silver-Nextgen.jpg",
+      "/image/camp-comp-image/nextgen-present.jpg",
+      "image/camp-comp-image/present-nextgen.jpg",
     ],
     tags: ["Python", "Deep Learning", "AI"],
     links: [
@@ -128,14 +132,39 @@ const DATA = [
     tags: ["Frontend", "Tailwind", "Design", "React", "JavaScript"],
     links: [
       {
-        href: "https://drive.google.com/drive/folders/11NSoVJt0etpAIqByoubYopBrUimKKnPU?usp=sharing",
+        href: "",
         label: "View Project",
       },
     ],
-    impact: ["Core components นำกลับใช้ซ้ำ", "รองรับการเข้าถึง (a11y)"],
+    impact: ["นำ components นำกลับใช้ซ้ำ"],
     role: "ออกแบบและทำเว็บรวมถึงการดีไซน์ร่วมกับเพื่อน",
     summary:
       "ออกแบบและพัฒนาเว็บพอร์ตด้วย React + Tailwind โทนมืดนุ่มตา วางระบบคอมโพเนนต์/โทเคนสี เพื่อ scale ทั้งเว็บไซต์",
+  },
+  {
+    id: 7,
+    title: "การประกวดแข่งขันนวัตกรรมนาโนเทคโนโลยีระดับประเทศครั้งที 13 ",
+    tagline: "การพัฒนาไฮโดรเจลอัจฉริยะที่ซ่อมแซมตัวเองได้จากไมโครคริสตัลลีนเซลลูโลสและกัวร์กัมเพื่อตรวจจับการเคลื่อนไหวสำหรับผู้ป่วยติดเตียง",
+    cover: "/image/camp-comp-image/nano-tech-people.png",
+    images: [
+       "/image/camp-comp-image/cert-nano.jpg",
+      "/image/camp-comp-image/nano-tech-people.png",
+      "/image/camp-comp-image/Graph-RR.png",
+      "/image/camp-comp-image/RR-Mobile-Graph.png",
+      "/image/camp-comp-image/rr-blue-graph.png",
+      "/image/camp-comp-image/rr-red-graph.png",
+    ],
+    tags: ["JavaScript","Nano Technology"],
+    links: [
+      {
+        href: "https://drive.google.com/drive/folders/1gfoVvXmHC-FKy3Fw4SgJf2rj_s1Ce1nN?usp=sharing",
+        label: "View Project",
+      },
+    ],
+    impact: ["นำความรู้จากวิทยาศาสตร์ในหลาย ๆ ด้านนำมาบูราณาการเข้าด้วยกัน เช่น เคมี ชีววิทยา ฟิสิกส์ คณิตศาสตร์ และ คอมพิวเตอร์"],
+    role: "รับหน้าที่ทำหน้าเว็บจำลองการวัดค่าความต้านสัมพัทธ์ของผู้ป่วยติดเตียงด้วย JavaScript แบบ Real-Time",
+    summary:
+      "",
   },
 ];
 
