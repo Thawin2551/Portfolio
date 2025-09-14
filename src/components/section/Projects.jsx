@@ -1,3 +1,4 @@
+// components/Projects.jsx
 import React, { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -5,9 +6,6 @@ import {
   Tag as TagIcon,
   X,
   SlidersHorizontal,
-  ChevronLeft,
-  ChevronRight,
-  Maximize2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -85,7 +83,6 @@ const DATA = [
       "/image/camp-comp-image/Port4.png",
       "/image/camp-comp-image/Port5.png",
       "/image/camp-comp-image/Port6.png",
-
     ],
     tags: ["React", "Tailwind", "Design", "Frontend"],
     links: [],
@@ -116,8 +113,7 @@ const DATA = [
     ],
     impact: ["Core components นำกลับใช้ซ้ำ", "รองรับการเข้าถึง (a11y)"],
     role: "เป็นคนพัฒนา AI และนำเสนอด้วยตัวเอง",
-    summary:
-      "ออกแบบโครงสร้าง CNN และเทรนโมเดลด้วย Python/PyTorch",
+    summary: "ออกแบบโครงสร้าง CNN และเทรนโมเดลด้วย Python/PyTorch",
   },
   {
     id: 6,
@@ -130,12 +126,7 @@ const DATA = [
       "/image/camp-comp-image/pizza-checkout.png",
     ],
     tags: ["Frontend", "Tailwind", "Design", "React", "JavaScript"],
-    links: [
-      {
-        href: "",
-        label: "View Project",
-      },
-    ],
+    links: [{ href: "", label: "View Project" }],
     impact: ["นำ components นำกลับใช้ซ้ำ"],
     role: "ออกแบบและทำเว็บรวมถึงการดีไซน์ร่วมกับเพื่อน",
     summary:
@@ -143,123 +134,40 @@ const DATA = [
   },
   {
     id: 7,
-    title: "การประกวดแข่งขันนวัตกรรมนาโนเทคโนโลยีระดับประเทศครั้งที 13 ",
-    tagline: "การพัฒนาไฮโดรเจลอัจฉริยะที่ซ่อมแซมตัวเองได้จากไมโครคริสตัลลีนเซลลูโลสและกัวร์กัมเพื่อตรวจจับการเคลื่อนไหวสำหรับผู้ป่วยติดเตียง",
+    title:
+      "การประกวดแข่งขันนวัตกรรมนาโนเทคโนโลยีระดับประเทศครั้งที 13 ",
+    tagline:
+      "การพัฒนาไฮโดรเจลอัจฉริยะที่ซ่อมแซมตัวเองได้จากไมโครคริสตัลลีนเซลลูโลสและกัวร์กัมเพื่อตรวจจับการเคลื่อนไหวสำหรับผู้ป่วยติดเตียง",
     cover: "/image/camp-comp-image/nano-tech-people.png",
     images: [
-       "/image/camp-comp-image/cert-nano.jpg",
+      "/image/camp-comp-image/cert-nano.jpg",
       "/image/camp-comp-image/nano-tech-people.png",
       "/image/camp-comp-image/Graph-RR.png",
       "/image/camp-comp-image/RR-Mobile-Graph.png",
       "/image/camp-comp-image/rr-blue-graph.png",
       "/image/camp-comp-image/rr-red-graph.png",
     ],
-    tags: ["JavaScript","Nano Technology"],
+    tags: ["JavaScript", "Nano Technology"],
     links: [
       {
         href: "https://drive.google.com/drive/folders/1gfoVvXmHC-FKy3Fw4SgJf2rj_s1Ce1nN?usp=sharing",
         label: "View Project",
       },
     ],
-    impact: ["นำความรู้จากวิทยาศาสตร์ในหลาย ๆ ด้านนำมาบูราณาการเข้าด้วยกัน เช่น เคมี ชีววิทยา ฟิสิกส์ คณิตศาสตร์ และ คอมพิวเตอร์"],
+    impact: [
+      "นำความรู้จากวิทยาศาสตร์ในหลาย ๆ ด้านนำมาบูราณาการเข้าด้วยกัน เช่น เคมี ชีววิทยา ฟิสิกส์ คณิตศาสตร์ และ คอมพิวเตอร์",
+    ],
     role: "รับหน้าที่ทำหน้าเว็บจำลองการวัดค่าความต้านสัมพัทธ์ของผู้ป่วยติดเตียงด้วย JavaScript แบบ Real-Time",
-    summary:
-      "",
+    summary: "",
   },
 ];
 
 const TAGS = ["All", ...Array.from(new Set(DATA.flatMap((d) => d.tags))).sort()];
 
-/* ---------- Lightbox สำหรับรูปในโมดัล ---------- */
-function ImageLightbox({ open, images = [], index = 0, onClose, onPrev, onNext, title }) {
-  useEffect(() => {
-    if (!open) return;
-    const onKey = (e) => {
-      if (e.key === "Escape") onClose?.();
-      if (e.key === "ArrowLeft") onPrev?.();
-      if (e.key === "ArrowRight") onNext?.();
-    };
-    window.addEventListener("keydown", onKey);
-    return () => window.removeEventListener("keydown", onKey);
-  }, [open, onClose, onPrev, onNext]);
-
-  if (!open) return null;
-
-  return (
-    <AnimatePresence>
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        className="fixed inset-0 z-[70] bg-black/80 backdrop-blur-sm grid place-items-center p-4"
-        onClick={onClose}
-      >
-        <motion.div
-          initial={{ y: 24, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 24, opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="relative max-w-[min(96vw,1100px)] w-full"
-          onClick={(e) => e.stopPropagation()}
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${title} image viewer`}
-        >
-          <div className="relative bg-black/20 rounded-2xl border border-white/10 overflow-hidden">
-            <img
-              src={images[index]}
-              alt={`${title} – รูปที่ ${index + 1}`}
-              className="w-full max-h-[75vh] object-contain"
-              loading="eager"
-            />
-
-            {/* ปิด */}
-            <button
-              onClick={onClose}
-              className="absolute top-3 right-3 p-2 rounded-full bg-white/10 hover:bg-white/15 text-white"
-              aria-label="Close"
-            >
-              <X size={18} />
-            </button>
-
-            {/* ก่อนหน้า / ถัดไป */}
-            {images.length > 1 && (
-              <>
-                <button
-                  onClick={onPrev}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 hover:bg-white/15"
-                  aria-label="Previous"
-                >
-                  <ChevronLeft size={22} />
-                </button>
-                <button
-                  onClick={onNext}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white/10 hover:bg-white/15"
-                  aria-label="Next"
-                >
-                  <ChevronRight size={22} />
-                </button>
-              </>
-            )}
-          </div>
-
-          <div className="mt-3 text-center text-sm text-white/75">
-            {title} — {index + 1}/{images.length}
-          </div>
-        </motion.div>
-      </motion.div>
-    </AnimatePresence>
-  );
-}
-
 export default function Projects() {
   const [q, setQ] = useState("");
   const [tag, setTag] = useState("All");
   const [active, setActive] = useState(null); // โปรเจกต์ที่เปิดโมดัลอยู่
-
-  // state ของ lightbox (คลิกรูปในโมดัลเพื่อขยาย)
-  const [viewerOpen, setViewerOpen] = useState(false);
-  const [viewerIndex, setViewerIndex] = useState(0);
 
   const list = useMemo(() => {
     const text = q.trim().toLowerCase();
@@ -280,22 +188,6 @@ export default function Projects() {
     window.addEventListener("keydown", onEsc);
     return () => window.removeEventListener("keydown", onEsc);
   }, []);
-
-  const openViewer = (idx) => {
-    setViewerIndex(idx);
-    setViewerOpen(true);
-  };
-  const closeViewer = () => setViewerOpen(false);
-  const prevViewer = () =>
-    setViewerIndex((i) => {
-      const len = active?.images?.length || 0;
-      return (i - 1 + len) % len;
-    });
-  const nextViewer = () =>
-    setViewerIndex((i) => {
-      const len = active?.images?.length || 0;
-      return (i + 1) % len;
-    });
 
   return (
     <section id="projects" className="min-h-screen py-16 md:py-24">
@@ -412,7 +304,7 @@ export default function Projects() {
         </motion.div>
       </div>
 
-      {/* Modal (case study) */}
+      {/* Modal (case study): สไตล์ "หน้าจอกลาง" ใช้ได้ทุกขนาดจอ */}
       <AnimatePresence>
         {active && (
           <motion.div
@@ -427,49 +319,41 @@ export default function Projects() {
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 24, opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-3xl rounded-2xl bg-zinc-900 border border-white/10 overflow-hidden"
+              // 👉 จำกัดความกว้างแบบการ์ดกึ่งกลางจอ
+              className="relative w-[92vw] max-w-4xl rounded-2xl bg-zinc-900/95 border border-white/10 shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
               role="dialog"
               aria-modal="true"
               aria-label={active.title}
             >
+              {/* ปุ่มปิดใหญ่ กดง่าย */}
               <button
-                className="absolute right-3 top-3 p-2 rounded-full bg-white/10 hover:bg-white/15 text-white/80"
+                className="absolute right-3 top-3 inline-flex items-center justify-center size-11 rounded-full bg-white/10 hover:bg-white/15 text-white/90"
                 onClick={() => setActive(null)}
                 aria-label="Close"
               >
-                <X size={18} />
+                <X className="size-6" />
               </button>
 
-              {active.images?.length ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 p-3">
-                  {active.images.map((src, i) => (
-                    <button
-                      type="button"
-                      key={i}
-                      onClick={() => openViewer(i)}
-                      className="relative group cursor-zoom-in"
-                      aria-label={`เปิดรูปที่ ${i + 1}`}
-                    >
+              {/* ส่วนรูปภาพ: grid 2 คอลัมน์ ทุกขนาดจอ */}
+              <div className="p-3 sm:p-4">
+                <div className="grid grid-cols-2 gap-3">
+                  {active.images?.slice(0, 6).map((src, i) => (
+                    <div key={i} className="relative">
                       <img
                         src={src}
                         alt={`${active.title} ${i + 1}`}
-                        className="w-full h-48 object-cover rounded-lg border border-white/10"
+                        className="w-full rounded-xl border border-white/10 object-cover aspect-[16/10] bg-white/5"
                         loading="lazy"
                       />
-                      {/* zoom hint */}
-                      <span className="absolute bottom-2 right-2 inline-flex items-center gap-1 text-xs text-white/90 bg-black/40 backdrop-blur-md px-2 py-1 rounded-md border border-white/10 opacity-0 group-hover:opacity-100 transition">
-                        <Maximize2 size={14} /> ดูรูป
-                      </span>
-                    </button>
+                    </div>
                   ))}
                 </div>
-              ) : (
-                <div className="h-48 bg-white/5" />
-              )}
+              </div>
 
-              <div className="p-5 md:p-6">
-                <h3 className="text-xl md:text-2xl font-semibold text-white">
+              {/* เนื้อหา */}
+              <div className="px-5 pb-6 sm:px-6 sm:pb-7">
+                <h3 className="text-xl sm:text-2xl font-semibold text-white">
                   {active.title}
                 </h3>
                 <p className="text-white/75 mt-2">{active.summary}</p>
@@ -519,17 +403,6 @@ export default function Projects() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Lightbox ของรูปในโมดัล */}
-      <ImageLightbox
-        open={viewerOpen && !!active?.images?.length}
-        images={active?.images || []}
-        index={viewerIndex}
-        title={active?.title || "Project"}
-        onClose={closeViewer}
-        onPrev={prevViewer}
-        onNext={nextViewer}
-      />
     </section>
   );
 }

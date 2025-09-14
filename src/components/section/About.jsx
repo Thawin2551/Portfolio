@@ -98,7 +98,7 @@ export const About = () => {
             <div className="hidden md:block absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400/80 via-blue-400/60 to-blue-400/80 shadow-[0_0_22px_rgba(96,165,250,0.35)]" />
 
             {/* มือถือ: เส้นด้านซ้ายให้ชัดขึ้นเหมือนกัน */}
-            <div className="md:hidden absolute left-2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400/80 via-blue-400/60 to-blue-400/80 shadow-[0_0_18px_rgba(96,165,250,0.3)]" />
+            <div className="hidden md:hidden absolute left-2 top-0 bottom-0 w-[3px] bg-gradient-to-b from-blue-400/80 via-blue-400/60 to-blue-400/80 shadow-[0_0_18px_rgba(96,165,250,0.3)]" />
 
             <div className="space-y-12">
               {education.map((e, i) => (
