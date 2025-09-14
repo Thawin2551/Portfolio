@@ -6,6 +6,9 @@ import {
   Tag as TagIcon,
   X,
   SlidersHorizontal,
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -164,10 +167,95 @@ const DATA = [
 
 const TAGS = ["All", ...Array.from(new Set(DATA.flatMap((d) => d.tags))).sort()];
 
+/* ---------- Lightbox สำหรับรูปในโมดัล (เวอร์ชัน mobile-friendly) ---------- */
+function ImageLightbox({ open, images = [], index = 0, onClose, onPrev, onNext, title }) {
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose?.();
+      if (e.key === "ArrowLeft") onPrev?.();
+      if (e.key === "ArrowRight") onNext?.();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose, onPrev, onNext]);
+
+  if (!open) return null;
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 z-[70] bg-black/80 backdrop-blur-sm flex items-center justify-center px-4 py-8"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.95, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.95, opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          // 👇 จำกัดความกว้าง popup ไม่ให้เต็มจอ
+          className="relative w-full max-w-[90vw] sm:max-w-[900px]"
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="relative bg-black/30 rounded-2xl border border-white/10 overflow-hidden p-3">
+            <img
+              src={images[index]}
+              alt={`${title} – รูปที่ ${index + 1}`}
+              // 👇 จำกัดความสูงลงเพื่อให้ดูไม่อึดอัด
+              className="w-full max-h-[50vh] sm:max-h-[72vh] object-contain rounded-lg"
+              loading="eager"
+            />
+
+            {/* ปุ่มปิด */}
+            <button
+              onClick={onClose}
+              className="absolute top-3 right-3 inline-flex items-center justify-center size-12 rounded-full bg-white/10 hover:bg-white/15 text-white focus:outline-none focus:ring-2 focus:ring-white/40"
+              aria-label="Close"
+            >
+              <X className="size-6" />
+            </button>
+
+            {/* ปุ่มเลื่อน */}
+            {images.length > 1 && (
+              <>
+                <button
+                  onClick={onPrev}
+                  className="absolute left-3 top-1/2 -translate-y-1/2 size-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                >
+                  <ChevronLeft className="size-6" />
+                </button>
+                <button
+                  onClick={onNext}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 size-10 rounded-full bg-white/10 hover:bg-white/20 text-white"
+                >
+                  <ChevronRight className="size-6" />
+                </button>
+              </>
+            )}
+          </div>
+
+          <div className="mt-3 text-center text-xs sm:text-sm text-white/70">
+            {title} — {index + 1}/{images.length}
+            <div className="text-white/50">แตะพื้นหลังเพื่อปิด</div>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+
+
 export default function Projects() {
   const [q, setQ] = useState("");
   const [tag, setTag] = useState("All");
   const [active, setActive] = useState(null); // โปรเจกต์ที่เปิดโมดัลอยู่
+
+  // state ของ lightbox (คลิกรูปในโมดัลเพื่อขยาย)
+  const [viewerOpen, setViewerOpen] = useState(false);
+  const [viewerIndex, setViewerIndex] = useState(0);
 
   const list = useMemo(() => {
     const text = q.trim().toLowerCase();
@@ -189,6 +277,22 @@ export default function Projects() {
     return () => window.removeEventListener("keydown", onEsc);
   }, []);
 
+  const openViewer = (idx) => {
+    setViewerIndex(idx);
+    setViewerOpen(true);
+  };
+  const closeViewer = () => setViewerOpen(false);
+  const prevViewer = () =>
+    setViewerIndex((i) => {
+      const len = active?.images?.length || 0;
+      return (i - 1 + len) % len;
+    });
+  const nextViewer = () =>
+    setViewerIndex((i) => {
+      const len = active?.images?.length || 0;
+      return (i + 1) % len;
+    });
+
   return (
     <section id="projects" className="min-h-screen py-16 md:py-24">
       <div className="max-w-7xl mx-auto px-4">
@@ -206,7 +310,7 @@ export default function Projects() {
             <span className="text-sm">Filter</span>
           </div>
 
-          <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-2">
             {TAGS.map((t) => (
               <button
                 key={t}
@@ -304,105 +408,118 @@ export default function Projects() {
         </motion.div>
       </div>
 
+      {/* Modal (case study) */}
       {/* Modal (case study): สไตล์ "หน้าจอกลาง" ใช้ได้ทุกขนาดจอ */}
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm grid place-items-center p-4"
-            onClick={() => setActive(null)}
-          >
-            <motion.div
-              initial={{ y: 24, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: 24, opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              // 👉 จำกัดความกว้างแบบการ์ดกึ่งกลางจอ
-              className="relative w-[92vw] max-w-4xl rounded-2xl bg-zinc-900/95 border border-white/10 shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-              role="dialog"
-              aria-modal="true"
-              aria-label={active.title}
-            >
-              {/* ปุ่มปิดใหญ่ กดง่าย */}
-              <button
-                className="absolute right-3 top-3 inline-flex items-center justify-center size-11 rounded-full bg-white/10 hover:bg-white/15 text-white/90"
-                onClick={() => setActive(null)}
-                aria-label="Close"
+<AnimatePresence>
+  {active && (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-sm grid place-items-center p-4"
+      onClick={() => setActive(null)}
+    >
+      <motion.div
+        initial={{ y: 24, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        exit={{ y: 24, opacity: 0 }}
+        transition={{ duration: 0.2 }}
+        className="relative w-[92vw] max-w-4xl rounded-2xl bg-zinc-900/95 border border-white/10 shadow-2xl overflow-hidden pt-12" 
+        // 👆 เพิ่ม pt-12 กันรูปบังปุ่ม
+        onClick={(e) => e.stopPropagation()}
+        role="dialog"
+        aria-modal="true"
+        aria-label={active.title}
+      >
+        {/* ปุ่มปิด: วางบนสุดไม่ถูกบัง */}
+        <button
+          className="cursor-pointer absolute right-4 top-4 inline-flex items-center justify-center size-11 rounded-full bg-red-500 hover:bg-red-600 duration-300 text-white shadow-lg"
+          onClick={() => setActive(null)}
+          aria-label="Close"
+        >
+          <X className="size-6" />
+        </button>
+
+        {/* ส่วนรูปภาพ: grid 2 คอลัมน์ */}
+        <div className="p-3 sm:p-4">
+          <div className="grid grid-cols-2 gap-3">
+            {active.images?.slice(0, 6).map((src, i) => (
+              <div key={i} className="relative">
+                <img
+                  src={src}
+                  alt={`${active.title} ${i + 1}`}
+                  className="w-full rounded-xl border border-white/10 object-cover aspect-[16/10] bg-white/5"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* เนื้อหา */}
+        <div className="px-5 pb-6 sm:px-6 sm:pb-7">
+          <h3 className="text-xl sm:text-2xl font-semibold text-white">
+            {active.title}
+          </h3>
+          <p className="text-white/75 mt-2">{active.summary}</p>
+
+          {/* Impact bullets */}
+          {active.impact?.length > 0 && (
+            <ul className="list-disc ml-5 text-white/80 mt-4 space-y-1">
+              {active.impact.map((it, idx) => (
+                <li key={idx}>{it}</li>
+              ))}
+            </ul>
+          )}
+
+          {/* Role + tags */}
+          <div className="mt-4 flex flex-wrap items-center gap-3">
+            <span className="text-xs px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 border border-blue-400/20">
+              Role: {active.role}
+            </span>
+            {active.tags.map((t) => (
+              <span
+                key={t}
+                className="text-xs px-2.5 py-1 rounded-md bg-white/8 border border-white/10 text-white/80"
               >
-                <X className="size-6" />
-              </button>
+                {t}
+              </span>
+            ))}
+          </div>
 
-              {/* ส่วนรูปภาพ: grid 2 คอลัมน์ ทุกขนาดจอ */}
-              <div className="p-3 sm:p-4">
-                <div className="grid grid-cols-2 gap-3">
-                  {active.images?.slice(0, 6).map((src, i) => (
-                    <div key={i} className="relative">
-                      <img
-                        src={src}
-                        alt={`${active.title} ${i + 1}`}
-                        className="w-full rounded-xl border border-white/10 object-cover aspect-[16/10] bg-white/5"
-                        loading="lazy"
-                      />
-                    </div>
-                  ))}
-                </div>
-              </div>
+          {/* Links */}
+          {active.links?.length > 0 && (
+            <div className="mt-5 flex flex-wrap gap-2">
+              {active.links.map((l, i) => (
+                <Link
+                  key={i}
+                  to={l.href}
+                  target="_blank"
+                  className="inline-flex items-center gap-1 text-sm text-blue-300 hover:text-blue-200"
+                >
+                  {l.label}
+                  <ExternalLink size={16} />
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      </motion.div>
+    </motion.div>
+  )}
+</AnimatePresence>
 
-              {/* เนื้อหา */}
-              <div className="px-5 pb-6 sm:px-6 sm:pb-7">
-                <h3 className="text-xl sm:text-2xl font-semibold text-white">
-                  {active.title}
-                </h3>
-                <p className="text-white/75 mt-2">{active.summary}</p>
 
-                {/* Impact bullets */}
-                {active.impact?.length > 0 && (
-                  <ul className="list-disc ml-5 text-white/80 mt-4 space-y-1">
-                    {active.impact.map((it, idx) => (
-                      <li key={idx}>{it}</li>
-                    ))}
-                  </ul>
-                )}
-
-                {/* Role + tags */}
-                <div className="mt-4 flex flex-wrap items-center gap-3">
-                  <span className="text-xs px-2.5 py-1 rounded-md bg-blue-500/10 text-blue-300 border border-blue-400/20">
-                    Role: {active.role}
-                  </span>
-                  {active.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="text-xs px-2.5 py-1 rounded-md bg-white/8 border border-white/10 text-white/80"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Links */}
-                {active.links?.length > 0 && (
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {active.links.map((l, i) => (
-                      <Link
-                        key={i}
-                        to={l.href}
-                        target="_blank"
-                        className="inline-flex items-center gap-1 text-sm text-blue-300 hover:text-blue-200"
-                      >
-                        {l.label}
-                        <ExternalLink size={16} />
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Lightbox ของรูปในโมดัล */}
+      <ImageLightbox
+        open={viewerOpen && !!active?.images?.length}
+        images={active?.images || []}
+        index={viewerIndex}
+        title={active?.title || "Project"}
+        onClose={closeViewer}
+        onPrev={prevViewer}
+        onNext={nextViewer}
+      />
     </section>
   );
 }
