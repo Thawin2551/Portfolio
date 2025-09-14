@@ -433,7 +433,7 @@ export default function Projects() {
       >
         {/* ปุ่มปิด: วางบนสุดไม่ถูกบัง */}
         <button
-          className="cursor-pointer absolute right-4 top-4 inline-flex items-center justify-center size-11 rounded-full bg-red-500 hover:bg-red-600 duration-300 text-white shadow-lg"
+          className="cursor-pointer absolute py-2 right-4 top-4 inline-flex items-center justify-center size-11 rounded-full bg-red-500 hover:bg-red-600 duration-300 text-white shadow-lg"
           onClick={() => setActive(null)}
           aria-label="Close"
         >

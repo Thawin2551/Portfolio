@@ -23,7 +23,7 @@ export const Navbar = () => {
 
       {/* Glass bar */}
       <div className="mx-auto max-w-7xl px-4">
-        <div className="mt-4 h-16 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_28px_rgba(0,0,0,0.35)]">
+        <div className="mt-4 h-19 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_10px_28px_rgba(0,0,0,0.35)]">
           <div className="h-full flex items-center justify-between px-4">
             {/* Brand */}
             <Link

@@ -19,9 +19,6 @@ import Certificate from './components/section/Certificate'
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-
-
-
   return (
     <BrowserRouter>
         <>
@@ -47,3 +44,5 @@ function App() {
 }
 
 export default App
+
+

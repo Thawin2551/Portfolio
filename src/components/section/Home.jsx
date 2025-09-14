@@ -82,16 +82,16 @@ export const Home = () => {
               <Link
                 to="/about"
                 className="inline-flex items-center justify-center px-5 py-3 rounded-xl
-                  text-blue-200 border border-white/15 bg-white/5 hover:bg-white/10 transition"
+                  text-blue-600 border border-white/15 bg-white hover:bg-gray-200 transition"
               >
                 About Me
               </Link>
               <Link
-                to="/contact"
+                to="/awards"
                 className="inline-flex items-center justify-center px-5 py-3 rounded-xl
-                  text-blue-300 border border-blue-400/30 bg-blue-400/10 hover:bg-blue-400/15 transition"
+                  text-white border border-blue-400/30 bg-red-600 hover:bg transition"
               >
-                Contact
+                Awards
               </Link>
             </div>
 

@@ -28,22 +28,22 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
     <>
       {/* Topbar (mobile only) */}
       <nav className="md:hidden fixed top-0 w-full z-40">
-        <div className="mx-auto max-w-7xl px-4">
-          <div className="mt-2 h-14 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.35)] flex items-center justify-between px-4">
+        <div className="mx-auto max-w-7xl px-4 ">
+          <div className="mt-5 h-17 rounded-xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_8px_24px_rgba(0,0,0,0.35)] flex items-center justify-between px-4">
             <Link to="/" className="text-lg font-semibold text-white">
-              Thawin’s <span className="gradient-monochrome-text">Portfolio</span>
+              Thawin <span className="gradient-monochrome-text">Portfolio</span>
             </Link>
 
             {/* ซ่อนปุ่มแฮมเบอร์เกอร์เมื่อเมนูเปิด เพื่อไม่ให้ทับกับปุ่ม X ในแผง */}
             <button
               aria-label={menuOpen ? "Close menu" : "Open menu"}
               aria-expanded={menuOpen}
-              className={`w-9 h-9 grid place-items-center rounded-lg border border-white/15 bg-white/10 text-white transition
+              className={`cursor-pointer w-9 h-9 grid place-items-center rounded-lg border border-white/15 bg-white/10 text-white transition
                 ${menuOpen ? "opacity-0 pointer-events-none" : "opacity-100"}
               `}
               onClick={() => setMenuOpen((v) => !v)}
             >
-              <span className="text-xl leading-none">{menuOpen ? "✕" : "≡"}</span>
+              <span className="text-2xl leading-none">{menuOpen ? "✕" : "≡"}</span>
             </button>
           </div>
         </div>
@@ -80,7 +80,7 @@ export const MobileMenu = ({ menuOpen, setMenuOpen }) => {
         {/* ปุ่ม X ของแผงเมนู (ตัวที่ต้องแสดงเมื่อเปิด) */}
         <button
           onClick={() => setMenuOpen(false)}
-          className="absolute top-4 right-4 text-2xl text-white"
+          className="cursor-pointer absolute top-4 right-4 text-2xl text-white"
           aria-label="Close Menu"
         >
           &times;
