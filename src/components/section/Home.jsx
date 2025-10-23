@@ -89,7 +89,7 @@ export const Home = () => {
               <Link
                 to="/awards"
                 className="inline-flex items-center justify-center px-5 py-3 rounded-xl
-                  text-white border border-blue-400/30 bg-red-600 hover:bg transition"
+                  text-white border border-blue-400/30 bg-blue-500/90 hover:bg-blue-500  hover:bg transition"
               >
                 Awards
               </Link>
