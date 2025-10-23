@@ -39,7 +39,7 @@ export const Contact = () => {
       </div>
 
       {/* Glass Card */}
-      <div className="w-full max-w-2xl bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_0_60px_rgba(255,255,255,0.05)] p-6 sm:p-10">
+      <div className="w-full max-w-2xl bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_0_60px_rgba(255,255,255,0.05)] p-6 sm:p-10 mt-12np">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-neutral-200 to-neutral-400">
           Contact Thawin
         </h2>
