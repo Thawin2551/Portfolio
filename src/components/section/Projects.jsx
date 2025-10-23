@@ -43,7 +43,7 @@ const DATA = [
       "/image/camp-comp-image/INC-Kidbright.png",
     ],
     tags: ["IoT", "Kidbright", "Automation"],
-    links: [],
+    links: [{href:"https://drive.google.com/drive/folders/1-FwLCOW1IgF53mRII3PQBdeZ_MSqb1kX?usp=sharing", label: "Source Code"}],
     impact: ["ใช้ตรรกะในการวางแผนการทำงานของโค้ด", "ออกแบบบการทำงานของนวัตกรม"],
     role: "คิดไอเดีย • ออกแบบโค้ดร่วมกับเพื่อน • นำเสนอ ",
     summary:
@@ -69,7 +69,7 @@ const DATA = [
         label: "Visit Website",
       },
     ],
-    impact: ["ออกแบบ UX เรียบ อ่านง่าย", "สาธิตฟีเจอร์หลักครบถ้วน"],
+    impact: ["ออกแบบ UX UI และทำงานกับเพื่อนภายในค่าย", "ทดลองใช้ Svelte Kit"],
     role: "Frontend  • Design",
     summary:
       "โปรเจกต์กลุ่มสร้างเว็บแอปด้วย SvelteKit + Tailwind โดยได้ Reference มาจากเกมสตอรี่ใน Instragram",
@@ -78,9 +78,9 @@ const DATA = [
     id: 4,
     title: "Portfolio Website",
     tagline: "ฝึกใช้เครื่องมือใหม่ ๆ และออกแบบเว็บด้วยตัวเอง",
-    cover: "/image/camp-comp-image/loading.png",
+    cover: "/image/camp-comp-image/Port1.png",
     images: [
-      "/image/camp-comp-image/Port1.png",
+      "/image/camp-comp-image/loading.png",
       "/image/camp-comp-image/Port2.png",
       "/image/camp-comp-image/Port3.png",
       "/image/camp-comp-image/Port4.png",
@@ -89,7 +89,7 @@ const DATA = [
     ],
     tags: ["React", "Tailwind", "Design", "Frontend"],
     links: [],
-    impact: ["Core components นำกลับใช้ซ้ำ", "รองรับการเข้าถึง (a11y)"],
+    impact: ["สามารถนำ Components กลับมาใช้ซ้ำได้"],
     role: "ออกแบบและทำเว็บเองทั้งหมด",
     summary:
       "ออกแบบและพัฒนาเว็บพอร์ตด้วย React + Tailwind โทนมืดนุ่มตา วางระบบคอมโพเนนต์/โทเคนสี เพื่อ scale ทั้งเว็บไซต์",
@@ -114,13 +114,13 @@ const DATA = [
         label: "View Project",
       },
     ],
-    impact: ["Core components นำกลับใช้ซ้ำ", "รองรับการเข้าถึง (a11y)"],
+    impact: ["ฝึกทักษะด้านการสื่อสาร", "นำไอเดียที่ได้จากการแข่งขันไปต่อยอด"],
     role: "เป็นคนพัฒนา AI และนำเสนอด้วยตัวเอง",
     summary: "ออกแบบโครงสร้าง CNN และเทรนโมเดลด้วย Python/PyTorch",
   },
   {
     id: 6,
-    title: "Dominated Pizza E-Commerce (Development in Progress)",
+    title: "Dominated Pizza E-Commerce",
     tagline: "เว็บแอพพลิเคชั่น ขายพิซซ่าที่พัฒนาด้วย React และ Tailwind CSS",
     cover: "/image/camp-comp-image/KU-Teamwork.jpg",
     images: [
